@@ -22,8 +22,15 @@ class MainPresenter: MvpPresenter<MainView>() {
         loadCounter()
     }
 
-    fun loadCounter() {
+    private fun loadCounter() {
         val counter = counterDAO.findAll()[0]
+        viewState.showDays(counter)
+    }
+
+    fun onReset() {
+        val counter = counterDAO.findAll()[0]
+        counter.reset()
+        counterDAO.save(counter)
         viewState.showDays(counter)
     }
 }

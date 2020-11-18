@@ -13,4 +13,8 @@ class Counter : Model {
     }
 
     constructor()
+
+    fun reset() {
+        value = 0
+    }
 }

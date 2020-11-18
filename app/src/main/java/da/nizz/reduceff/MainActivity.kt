@@ -20,23 +20,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
     }
 
-    override fun onReset() {
-        TODO("Not yet implemented")
-    }
-
     override fun showDays(counter: Counter) {
         numberOfDays.text = counter.value.toString()
 
     }
 
-    fun onClickInc(view: View) {
-        val counterDB = Select().from(Counter::class.java).executeSingle<Counter>()
-        if (counterDB == null) {
-            Counter(1).save()
-
-        }
-        ++counterDB.value
-        counterDB.save()
-        numberOfDays.text = counterDB.value.toString()
+    fun onClickReset(view: View) {
+        mPresenter.onReset()
     }
 }

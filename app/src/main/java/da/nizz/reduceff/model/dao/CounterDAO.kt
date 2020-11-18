@@ -1,10 +1,12 @@
-package da.nizz.reduceff.dao
+package da.nizz.reduceff.model.dao
 
-import com.activeandroid.query.Delete
 import com.activeandroid.query.Select
 import da.nizz.reduceff.model.Counter
 
 class CounterDAO {
+    companion object {
+        const val FIRST_ID = 0
+    }
 
     fun save(counter: Counter): Long = counter.save()
 
@@ -14,4 +16,7 @@ class CounterDAO {
     fun findAll(): List<Counter> = Select().from(Counter::class.java).execute()
 
     fun delete(counter: Counter) = counter.delete()
+
+    fun loadCounter(): Counter =
+        Select().from(Counter::class.java).where("id = ?", FIRST_ID).executeSingle()
 }

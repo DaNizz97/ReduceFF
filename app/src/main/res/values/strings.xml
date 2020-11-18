@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ReduceFF</string>
+    <string name="resetButtonText">Reset</string>
+    <string name="mainText">Number Of Days\nWithout FF:</string>
+</resources>

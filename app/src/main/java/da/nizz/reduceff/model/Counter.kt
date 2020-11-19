@@ -2,19 +2,20 @@ package da.nizz.reduceff.model
 
 import com.activeandroid.Model
 import com.activeandroid.annotation.Column
+import java.util.*
 
 class Counter : Model {
 
     @Column
-    var value: Int = 0
+    var sinceDate: Date = Date()
 
-    constructor(value: Int) : super() {
-        this.value = value
+    constructor(sinceDate: Date) : super() {
+        this.sinceDate = sinceDate
     }
 
     constructor()
 
     fun reset() {
-        value = 0
+        this.sinceDate = Date()
     }
 }

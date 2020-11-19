@@ -1,7 +1,10 @@
 package da.nizz.reduceff.model.dao
 
+import com.activeandroid.Model
 import com.activeandroid.query.Select
 import da.nizz.reduceff.model.Counter
+import java.time.LocalDate
+import java.util.*
 
 class CounterDAO {
     companion object {
@@ -10,13 +13,6 @@ class CounterDAO {
 
     fun save(counter: Counter): Long = counter.save()
 
-    fun findById(id: Long): Counter =
-        Select().from(Counter::class.java).where("id = ?", id).executeSingle()
-
-    fun findAll(): List<Counter> = Select().from(Counter::class.java).execute()
-
-    fun delete(counter: Counter) = counter.delete()
-
     fun loadCounter(): Counter =
-        Select().from(Counter::class.java).where("id = ?", FIRST_ID).executeSingle()
+        Select().from(Counter::class.java).executeSingle() ?: Counter(Date(-1))
 }

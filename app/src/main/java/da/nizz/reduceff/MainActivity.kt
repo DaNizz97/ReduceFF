@@ -2,10 +2,8 @@ package da.nizz.reduceff
 
 import android.os.Bundle
 import android.view.View
-import com.activeandroid.query.Select
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
-import da.nizz.reduceff.model.Counter
 import da.nizz.reduceff.presenter.MainPresenter
 import da.nizz.reduceff.view.MainView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,14 +16,19 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        mPresenter.loadDaysNumber()
     }
 
-    override fun showDays(counter: Counter) {
-        numberOfDays.text = counter.value.toString()
+    override fun onResume() {
+        super.onResume()
+        mPresenter.loadDaysNumber()
+    }
 
+    override fun showDays(days: Int) {
+        numberOfDays.text = days.toString()
     }
 
     fun onClickReset(view: View) {
-        mPresenter.onReset()
+        mPresenter.reset()
     }
 }

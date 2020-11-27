@@ -1,6 +1,5 @@
 package da.nizz.reduceff
 
-import com.activeandroid.ActiveAndroid
 import com.activeandroid.app.Application
 import da.nizz.reduceff.di.component.AppComponent
 import da.nizz.reduceff.di.component.DaggerAppComponent
@@ -14,7 +13,6 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         graph = DaggerAppComponent.builder().counterDaoModule(CounterDaoModule()).build()
     }
 }

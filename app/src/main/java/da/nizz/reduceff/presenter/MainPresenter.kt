@@ -20,21 +20,6 @@ class MainPresenter : MvpPresenter<MainView>() {
         MyApplication.graph.inject(this)
     }
 
-//    override fun onFirstViewAttach() {
-//        super.onFirstViewAttach()
-//        val counter = counterDAO.loadCounter()
-//        if (counter.sinceDate.time == -1L) {
-//            counter.sinceDate = Date()
-//            counterDAO.save(counter)
-//            viewState.showDays(0)
-//            return
-//        }
-//        val diffInMillis: Long = abs(Date().time - counter.sinceDate.time)
-//        val diff: Long = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS)
-//        viewState.showDays(diff.toInt())
-//    }
-
-
     fun loadDaysNumber() {
         val counter = counterDAO.loadCounter()
         if (counter.sinceDate.time == -1L) {

@@ -13,6 +13,7 @@ class Counter : Model {
         this.sinceDate = sinceDate
     }
 
+    @Suppress("unused")
     constructor()
 
     fun reset() {

@@ -28,7 +28,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         numberOfDays.text = days.toString()
     }
 
-    fun onClickReset(view: View) {
+    fun onClickReset(@Suppress("UNUSED_PARAMETER") view: View) {
         mPresenter.reset()
     }
 }

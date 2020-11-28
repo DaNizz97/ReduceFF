@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainTextColor">#BA4B9F</color>
+    
+    <color name="state_color_1">#AE1515</color>
+    <color name="state_color_2">#AE4615</color>
+    <color name="state_color_3">#AE7915</color>
+    <color name="state_color_4">#AEAE15</color>
+    <color name="state_color_5">#79AE15</color>
+    <color name="state_color_6">#46AE15</color>
+    <color name="state_color_7">#14AE15</color>
 </resources>

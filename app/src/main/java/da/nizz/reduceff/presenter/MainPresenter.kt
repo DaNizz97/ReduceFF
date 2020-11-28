@@ -15,6 +15,7 @@ class MainPresenter : MvpPresenter<MainView>() {
 
     @Inject
     lateinit var counterDAO: CounterDAO
+    private var lastLoadedCounter: Int = 0
 
     init {
         MyApplication.graph.inject(this)
@@ -25,18 +26,20 @@ class MainPresenter : MvpPresenter<MainView>() {
         if (counter.sinceDate.time == -1L) {
             counter.sinceDate = Date()
             counterDAO.save(counter)
-            viewState.showDays(0)
-            return
+            lastLoadedCounter = 0
+        } else {
+            val diffInMillis: Long = abs(Date().time - counter.sinceDate.time)
+            val diff: Long = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS)
+            lastLoadedCounter = diff.toInt()
         }
-        val diffInMillis: Long = abs(Date().time - counter.sinceDate.time)
-        val diff: Long = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS)
-        viewState.showDays(diff.toInt())
+        viewState.showDays(lastLoadedCounter)
     }
 
     fun reset() {
         val counter = counterDAO.loadCounter()
         counter.reset()
         counterDAO.save(counter)
+        lastLoadedCounter = 0
         viewState.showDays(0)
     }
 }

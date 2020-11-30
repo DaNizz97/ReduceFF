@@ -47,6 +47,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "androidx.preference:preference-ktx:1.1.1"
 
     // Active android
     implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
@@ -62,6 +63,9 @@ dependencies {
     implementation "tech.schoolhelper:moxy-x:$moxy_version"
     implementation "tech.schoolhelper:moxy-x-androidx:$moxy_version"
     kapt "tech.schoolhelper:moxy-x-compiler:$moxy_version"
+
+    // Color Picker
+    implementation "com.github.skydoves:colorpickerpreference:2.0.5"
 
     // Test
     testImplementation 'junit:junit:4.+'
